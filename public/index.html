@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kotten och kroppen – organen och deras uppgifter (åk 4–6)</title>
+<meta name="description" content="Peka på rätt organ inuti kroppen: hjärnan, lungorna, hjärtat, magsäcken, levern, tunntarmen och tjocktarmen. Frågan skrivs ut och läses upp. Tränar människans organsystem, biologi åk 4–6. Gratis, ingen inloggning.">
+<meta name="theme-color" content="#faf7f2">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:title" content="Kotten och kroppen">
+<meta property="og:description" content="Var sitter organen och vad gör de? Peka på rätt organ – biologi åk 4–6.">
+<meta property="og:image" content="og.png">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="styles.css">
+<script src="https://www.skolappar.com/kotten.js" defer></script>
+</head>
+<body>
+
+<!-- START:startskarm -->
+<div id="startskarm">
+  <div class="sk-inner">
+    <img class="sk-ikon" src="icon-192.png" alt="" width="96" height="96">
+    <h1>Kotten och kroppen</h1>
+    <p class="sk-tagline">Peka på rätt organ inuti kroppen.</p>
+    <div class="sk-taggar">
+      <span>Biologi</span><span>Åk 4–6</span><span>Organen</span>
+    </div>
+    <button class="sk-play" id="spela" aria-label="Spela Kotten och kroppen">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+      Spela
+    </button>
+    <p class="sk-fot">Gratis · ingen inloggning · skolappar.com</p>
+    <details class="sk-laroplan">
+      <summary>Läroplanskoppling (Lgr22)</summary>
+      <p><b>Biologi, åk 4–6, centralt innehåll:</b> ”Människans organsystem. Några organs namn, utseende, placering, funktion och samverkan.”</p>
+      <p>Kroppen står på skärmen med åtta organ utritade på sina platser: hjärnan, lungorna, hjärtat, matstrupen, levern, magsäcken, tunntarmen och tjocktarmen. Nivå 1 ger organets namn, nivå 2 beskriver vad organet gör och nivå 3 frågar efter samverkan – matens väg genom kroppen och vilka två organ som arbetar ihop. Frågan skrivs ut och läses upp; barnet pekar på organet i kroppen. Fel svar kostar inget: Kotten funderar, frågan läses upp igen och efter två försök lyser rätt organ. Källa: Skolverket, läroplanen för grundskolan (Lgr22).</p>
+    </details>
+  </div>
+</div>
+<!-- SLUT:startskarm -->
+
+<main id="spel" hidden>
+  <header class="hud">
+    <div class="fraga" id="fraga" aria-live="polite"></div>
+    <div class="hud-hoger">
+      <span class="stjarnor" id="stjarnor" aria-label="stjärnor"></span>
+      <button class="ikon-knapp" id="hjalp" aria-label="Läs upp frågan igen">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h3l4-3v12l-4-3H4z"/><path d="M15 8a5 5 0 0 1 0 8"/></svg>
+      </button>
+      <button class="ikon-knapp" id="ljud" aria-label="Ljud på eller av">
+        <svg viewBox="0 0 24 24" aria-hidden="true" id="ljudikon"></svg>
+      </button>
+    </div>
+  </header>
+
+  <section class="brada">
+    <svg id="scen" viewBox="0 0 1000 660" preserveAspectRatio="xMidYMid meet" role="group" aria-label="En kropp med organen utritade. Peka på det organ frågan gäller."></svg>
+  </section>
+
+  <footer class="svar-rad">
+    <span id="kotten"></span>
+    <span id="svar" aria-live="polite"></span>
+    <span class="prickar" id="prickar" aria-label="frågor klara"></span>
+  </footer>
+</main>
+
+<div id="overlay" hidden>
+  <div class="ov-inner">
+    <div id="ov-bild"></div>
+    <h2 id="ov-titel"></h2>
+    <p id="ov-text"></p>
+    <div class="ov-knappar">
+      <button class="knapp stor" id="ov-nasta"></button>
+      <button class="knapp tyst" id="ov-niva" hidden>Byt nivå</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

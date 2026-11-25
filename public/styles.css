@@ -1,0 +1,132 @@
+/* Kotten och kroppen. Kotten-familjens färger: papper, en accent (tallgrön),
+   stjärnguld. Kroppen har hudtoner och organen sina egna färger – inget annat.
+   All text i spelet är läsbar för en vuxen och läses upp för barnet. */
+:root{
+  --papper:#faf7f2;
+  --bläck:#14181f;
+  --dämpad:#4a5260;
+  --accent:#2f7d5a;
+  --accent-mörk:#215c41;
+  --stjärna:#e8a33d;
+  --fel:#c9503f;
+  --kort:#ffffff;
+  --linje:#e3ddd2;
+  --hud:#f4e7d8;
+  --hud-kant:#e0cbb4;
+  --ring:#b9ab92;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;overflow:hidden}
+body{
+  background:var(--papper);
+  color:var(--bläck);
+  font:400 18px/1.35 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  touch-action:manipulation;
+  overscroll-behavior:none;
+  -webkit-text-size-adjust:100%;
+  user-select:none;
+}
+button{font:inherit;color:inherit;cursor:pointer}
+h1,h2,p{margin:0}
+
+/* ---------- Startskärm ---------- */
+#startskarm{
+  position:fixed;inset:0;z-index:40;
+  display:grid;place-items:center;
+  background:var(--papper);
+  padding:16px;overflow:auto;
+}
+.sk-inner{width:min(92vw,620px);text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px}
+.sk-ikon{width:clamp(64px,10vmin,96px);height:auto;border-radius:26%;box-shadow:0 8px 22px rgba(20,24,31,.14)}
+#startskarm h1{font-size:clamp(24px,4.4vmin,42px);font-weight:800;letter-spacing:-.028em}
+.sk-tagline{color:var(--dämpad);font-size:clamp(16px,2.3vmin,22px)}
+.sk-taggar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:2px}
+.sk-taggar span{
+  font-size:clamp(13px,1.7vmin,16px);font-weight:600;color:var(--accent-mörk);
+  background:color-mix(in srgb,var(--accent) 12%,#fff);
+  padding:5px 12px;border-radius:999px
+}
+.sk-play{
+  margin-top:6px;border:0;background:var(--accent);color:#fff;font-weight:700;
+  font-size:clamp(19px,2.8vmin,26px);
+  padding:14px 42px;border-radius:999px;display:inline-flex;align-items:center;gap:10px;
+  box-shadow:0 10px 22px rgba(47,125,90,.34);min-height:56px;
+}
+.sk-play:active{transform:translateY(1px)}
+.sk-play svg{width:1em;height:1em;fill:#fff}
+.sk-fot{color:var(--dämpad);opacity:.85;font-size:clamp(12px,1.6vmin,15px)}
+.sk-laroplan{margin-top:4px;text-align:left;width:100%;color:var(--dämpad);font-size:14px}
+.sk-laroplan summary{font-size:14px;cursor:pointer;list-style:none;text-align:center;opacity:.8}
+.sk-laroplan p{margin-top:6px;line-height:1.38}
+
+/* ---------- Spelet ---------- */
+#spel{display:flex;flex-direction:column;height:100dvh;padding:6px clamp(8px,2vw,20px);gap:2px}
+.hud{display:flex;align-items:center;justify-content:space-between;gap:clamp(6px,1.6vw,18px);flex:0 0 auto}
+.fraga{
+  flex:1 1 auto;font-size:clamp(16px,2.5vmin,25px);font-weight:700;line-height:1.22;
+  color:var(--accent-mörk);max-width:60ch;
+}
+.hud-hoger{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.stjarnor{font-size:clamp(15px,2.2vmin,21px);color:var(--stjärna);letter-spacing:1px;line-height:1;white-space:nowrap}
+.ikon-knapp{
+  width:clamp(44px,6.2vmin,52px);height:clamp(44px,6.2vmin,52px);border-radius:14px;
+  border:1px solid var(--linje);background:var(--kort);
+  display:grid;place-items:center;
+}
+.ikon-knapp svg{width:62%;height:62%;fill:none;stroke:var(--bläck);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.ikon-knapp:active{background:var(--linje)}
+
+.brada{flex:1 1 auto;min-height:0;display:flex}
+#scen{width:100%;height:100%;display:block;touch-action:manipulation}
+
+.svar-rad{flex:0 0 auto;display:flex;align-items:center;gap:10px;justify-content:center;min-height:0}
+#kotten{display:flex;align-items:center}
+#kotten svg{width:clamp(28px,4.4vmin,44px);height:clamp(28px,4.4vmin,44px)}
+#svar{
+  font-size:clamp(14px,2vmin,19px);font-weight:600;color:var(--accent-mörk);
+  max-width:70ch;line-height:1.22;
+}
+.prickar{display:flex;gap:5px}
+.prickar i{width:clamp(7px,1.3vmin,11px);height:clamp(7px,1.3vmin,11px);border-radius:50%;
+  background:color-mix(in srgb,var(--accent) 22%,#fff);border:1px solid color-mix(in srgb,var(--accent) 35%,#fff)}
+.prickar i.klar{background:var(--accent);border-color:var(--accent)}
+
+/* Organen: osynlig tryckyta i organets egen form, så barnet pekar på själva organet. */
+.organ{cursor:pointer;touch-action:manipulation}
+.organ .tryck{opacity:0}
+.organ:active .syn{filter:brightness(1.08)}
+.organ:focus{outline:none}
+.ratt-mark{transform-origin:center;transform-box:fill-box}
+.organ.ratt .ratt-mark{opacity:1}
+
+.knapp{
+  border:0;background:var(--accent);color:#fff;font-weight:700;
+  padding:12px 22px;border-radius:999px;font-size:clamp(16px,2.2vmin,20px);
+  min-height:52px;box-shadow:0 6px 16px rgba(47,125,90,.28);
+}
+.knapp:active{transform:translateY(1px)}
+.knapp.stor{font-size:clamp(19px,2.6vmin,24px);padding:14px 38px;min-height:58px}
+.knapp.tyst{background:var(--kort);color:var(--dämpad);border:1px solid var(--linje);box-shadow:none}
+
+/* ---------- Överlägg (rundan klar) ---------- */
+#overlay{
+  position:fixed;inset:0;z-index:30;background:var(--papper);
+  display:grid;place-items:center;padding:20px;text-align:center;
+}
+.ov-inner{width:min(92vw,540px);display:flex;flex-direction:column;align-items:center;gap:10px}
+#ov-bild svg{width:clamp(64px,11vmin,110px);height:auto}
+#ov-titel{font-size:clamp(24px,4.2vmin,40px);font-weight:800}
+#ov-text{color:var(--dämpad);font-size:clamp(16px,2.2vmin,20px)}
+.ov-knappar{margin-top:4px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+
+[hidden]{display:none !important}
+
+@media (max-height:560px){ .sk-laroplan{display:none} }
+@media (max-width:700px){ .fraga{font-size:16px} .svar-rad{gap:6px} }
+
+@media (prefers-reduced-motion:no-preference){
+  .organ.ratt .syn{animation:glöd 1.4s ease-in-out infinite}
+  .organ.fel .syn{animation:skaka .4s}
+  @keyframes glöd{0%,100%{filter:brightness(1)}50%{filter:brightness(1.22)}}
+  @keyframes skaka{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+}
