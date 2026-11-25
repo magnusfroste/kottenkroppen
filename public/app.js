@@ -258,9 +258,9 @@
     },
     tjocktarm: {
       syn: '<path d="M418 492 h164 q14 0 14 16 v66 q0 14 -14 14 h-164 q-14 0 -14 -14 v-66 q0 -16 14 -16z" fill="none" stroke="#c58a5f" stroke-width="17" stroke-linejoin="round"/>' +
-        '<path d="M470 588 v-18M530 588 v-18" stroke="#c58a5f" stroke-width="14" stroke-linecap="round"/>',
+        '<path d="M470 580 v-14M530 580 v-14" stroke="#c58a5f" stroke-width="14" stroke-linecap="round"/>',
       hit: '<path d="M418 492 h164 q14 0 14 16 v66 q0 14 -14 14 h-164 q-14 0 -14 -14 v-66 q0 -16 14 -16z" fill="none" stroke="transparent" stroke-width="22" stroke-linejoin="round"/>' +
-        '<path d="M470 588 v-18M530 588 v-18" stroke="transparent" stroke-width="24" stroke-linecap="round"/>'
+        '<path d="M470 578 v-12M530 578 v-12" stroke="transparent" stroke-width="24" stroke-linecap="round"/>'
     }
   };
 
